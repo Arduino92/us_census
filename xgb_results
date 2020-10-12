@@ -1,0 +1,17 @@
+Imbalanced correction
+
+Output length : 99762
+[[89960  3616]
+ [ 2636  3550]]
+accuracy: 0.9373308474168521
+sensitivity: 0.495394920457717
+specificity: 0.9715322476132878
+
+No Imbalanced correction
+
+Output length : 99762
+[[92657   919]
+ [ 3483  2703]]
+accuracy: 0.9558749824582506
+sensitivity: 0.7462727774710105
+specificity: 0.9637715831079675

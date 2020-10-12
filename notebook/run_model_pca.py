@@ -7,11 +7,7 @@ from category_encoders import OneHotEncoder
 from sklearn.compose import make_column_transformer
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split, GridSearchCV
-import imblearn
-from imblearn.combine import SMOTETomek
-from imblearn.over_sampling import SMOTE
-from imblearn.under_sampling import NearMiss
-from imblearn.pipeline import make_pipeline as mp_imblearn
+from sklearn.decomposition import PCA
 
 
 def fit_model(model, df, target, numeric_columns, categorical_columns, param_grid):
@@ -23,10 +19,7 @@ def fit_model(model, df, target, numeric_columns, categorical_columns, param_gri
     frequent = SimpleImputer(missing_values=np.NaN, strategy='most_frequent')
     onehot = OneHotEncoder()
     
-    #smt = SMOTETomek('auto')
-    
-#     over_samp = SMOTE(sampling_strategy={0: count_class_0})
-#     under_samp = NearMiss(sampling_strategy={1: count_class_1})
+    pca = PCA(n_components=round(x_train.shape[1]*0.8))
 
     preprocess = make_column_transformer(
         (make_pipeline(imputer, scaler), numeric_columns),
@@ -34,6 +27,7 @@ def fit_model(model, df, target, numeric_columns, categorical_columns, param_gri
     )
 
     pipe = make_pipeline(preprocess,
+                         pca,
                        GridSearchCV(model, param_grid=param_grid, verbose=10))
     
     return pipe.fit(x_train, y_train)
