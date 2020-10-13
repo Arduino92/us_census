@@ -1,3 +1,6 @@
+RandomForestClassifier
+
+
 Imbalanced correction
 
 RandomForestClassifier(bootstrap=False, criterion='entropy', max_features=9,
@@ -25,3 +28,43 @@ Output length : 99762
 accuracy: 0.9520759407389587
 sensitivity: 0.8238819732595666
 specificity: 0.9549250458536985
+
+
+
+LogisticRegression
+
+
+Best estimator : LogisticRegression(C=78.47599703514607, penalty='l1', solver='liblinear')
+Best score : 0.9521857771342652
+
+
+Output length : 99762
+[[91513  2063]
+ [ 3020  3166]]
+accuracy: 0.9490487359916602
+sensitivity: 0.6054694970357621
+specificity: 0.9680534839685613
+
+
+XBG
+
+Imbalanced correction
+
+Output length : 99762
+[[89960  3616]
+ [ 2636  3550]]
+accuracy: 0.9373308474168521
+sensitivity: 0.495394920457717
+specificity: 0.9715322476132878
+
+No Imbalanced correction
+
+Output length : 99762
+[[92657   919]
+ [ 3483  2703]]
+accuracy: 0.9558749824582506
+sensitivity: 0.7462727774710105
+specificity: 0.9637715831079675
+
+
+
